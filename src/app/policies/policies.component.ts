@@ -21,6 +21,10 @@ export class PoliciesComponent implements OnInit {
     this.policyService.deletePolicy(policyId).subscribe((ret)=>{
           console.log("Policy deleted: ", ret);
     })
+    this.policyService.getPolicies().subscribe((data : any[])=>{
+        console.log(data);
+        this.policies = data;
+    })
 } 
 
 }
