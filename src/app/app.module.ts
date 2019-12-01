@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing/app-routing.module.ts'; 
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -11,7 +12,7 @@ import { PolicyService } from './policy.service';
 import { PoliciesComponent } from './policies/policies.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule,
+  imports:      [ BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, 
   InMemoryWebApiModule.forRoot(DataService) ],
   declarations: [ AppComponent, HelloComponent, PoliciesComponent ],
   bootstrap:    [ AppComponent ],
