@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 import { IEmployee } from '../iemployee';
 
@@ -11,7 +12,7 @@ import { IEmployee } from '../iemployee';
 export class AddemployeeComponent implements OnInit {
 
   employee: IEmployee;
-  constructor(private employeeService:EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private router: Router) { }
 
   ngOnInit() {
     this.employee = {
@@ -30,6 +31,7 @@ export class AddemployeeComponent implements OnInit {
         console.log("Employee Added", ret)
       }
     )
+    this.router.navigateByUrl('/employeelist');
   }
 
 
