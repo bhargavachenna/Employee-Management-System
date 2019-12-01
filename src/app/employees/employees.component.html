@@ -1,0 +1,21 @@
+
+<table style="width:100%">
+  <tr>
+    <th>Emp ID</th>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Email</th>
+    <th>Mobile</th>
+  </tr>
+  <tr *ngFor="let employee of employees" >
+    <td>{{ employee.id }} </td>
+    <td>{{ employee.names }}</td>
+    <td>{{ employee.location }}</td>
+    <td>{{ employee.email }}</td>
+    <td>{{ employee.mobile }}</td>
+
+    <td>
+    <button (click)="deleteEmployee(employee.id)">Delete</button>
+    </td>
+  </tr>
+</table>

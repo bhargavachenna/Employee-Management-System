@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IEmployee } from './iemployee';
 import {InMemoryDbService} from 'angular-in-memory-web-api'
 
 @Injectable({
@@ -6,17 +7,36 @@ import {InMemoryDbService} from 'angular-in-memory-web-api'
 })
 export class DataService implements InMemoryDbService {
 
+  employees: IEmployee[];
   constructor() { }
   createDb(){
 
-   let  policies =  [
-    {  id:  1,  num:  'PO1', amount: 1000, userId: 1, clientId: 1, description: 'Insurance policy number PO1' },
-    {  id:  2,  num:  'PO2', amount: 2000, userId: 1, clientId: 2, description: 'Insurance policy number PO2' },
-    {  id:  3,  num:  'PO3', amount: 3000, userId: 1, clientId: 3, description: 'Insurance policy number PO3' },
-    {  id:  4,  num:  'PO4', amount: 4000, userId: 1, clientId: 4, description: 'Insurance policy number PO4' }
+   this.employees =  [
+           {
+          id: 1,
+          names: "Ram",
+          location: "Bangalore",
+          email: "ram@mail.com",
+          mobile: "9867512345"
+        },
+        {
+          id: 2,
+          names: "Raj",
+          location: "Chennai",
+          email: "raj@mail.com",
+          mobile: "7867534521"
+        },
+        {
+          id: 3,
+          names: "Vinay",
+          location: "Pune",
+          email: "vinay@mail.com",
+          mobile: "9975287450"
+        }
+
    ];
 
-   return {policies};
+   return {employees :this.employees};
 
   }
 

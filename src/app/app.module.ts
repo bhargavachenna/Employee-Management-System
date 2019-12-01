@@ -8,13 +8,13 @@ import { AppRoutingModule, routingComponents } from "./app-routing/app-routing.m
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { DataService } from './data.service';
-import { PolicyService } from './policy.service';
+import { EmployeeService } from './employee.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, 
   InMemoryWebApiModule.forRoot(DataService) ],
   declarations: [ AppComponent, HelloComponent, routingComponents ],
   bootstrap:    [ AppComponent ],
-  providers: [DataService, PolicyService]
+  providers: [DataService, EmployeeService]
 })
 export class AppModule { }
