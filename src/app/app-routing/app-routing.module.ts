@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router'
 import { CommonModule } from '@angular/common';
-import { policies } from '../policies/policies.component'
+import { PoliciesComponent } from '../policies/policies.component';
 
 const routes: Routes = [
-  {path: 'employeelist', component: policies},
+  {path: 'employeelist', component: PoliciesComponent},
   //{path: 'addemployee'}
 ];
 
@@ -17,3 +17,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
+export const routingComponents = [PoliciesComponent];
