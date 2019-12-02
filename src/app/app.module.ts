@@ -13,7 +13,7 @@ import { EmployeeService } from './employee.service';
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, 
   InMemoryWebApiModule.forRoot(DataService) ],
-  declarations: [ AppComponent, HelloComponent, routingComponents ],
+  declarations: [ AppComponent, HelloComponent, routingComponents],
   bootstrap:    [ AppComponent ],
   providers: [DataService, EmployeeService]
 })

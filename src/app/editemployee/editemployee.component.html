@@ -1,0 +1,8 @@
+<h1>Hellow World</h1>
+<form #userForm="ngForm" (ngSubmit)="editEmployee()" novalidate>
+  EmployeeName : <input name="names" id="name" type="text" [(ngModel)]="employee.names">
+  Location : <input name="location" id="location" type="text" [(ngModel)]="employee.location">
+  Email : <input name="email" id="location" type="text" [(ngModel)]="employee.email">
+  Mobile : <input name="mobile" id="text" type="text" [(ngModel)]="employee.mobile">
+  <input id="add" type="submit" value="submit">
+</form>

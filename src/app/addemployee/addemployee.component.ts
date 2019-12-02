@@ -18,7 +18,7 @@ export class AddemployeeComponent implements OnInit {
     this.employee = {
           id: 1,
           names: "",
-          location: "",
+          location : "",
           email: "",
           mobile: ""
         };

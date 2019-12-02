@@ -19,14 +19,14 @@ export class EmployeeService {
     return this.httpClient.get(`${this.server_url+'employees'}/${employeeId}`);
   }
   public createEmployee(employee: IEmployee){
-      return this.httpClient.post(`${this.server_url + 'employees'}`, employee)
+      return this.httpClient.post(`${this.server_url+'employees'}`, employee)
   }
 
   public deleteEmployee(employeeId){
-      return this.httpClient.delete(`${this.server_url + 'employees'}/${employeeId}`)
+      return this.httpClient.delete(`${this.server_url+'employees'}/${employeeId}`)
   }
-  public updateEmployee(employee: {id: number, amount: number, clientId: number, userId: number, description: string}){
-      return this.httpClient.put(`${this.server_url + 'employees'}/${employee.id}`, employee)
+  public updateEmployee(employee: IEmployee){
+      return this.httpClient.put(`${this.server_url+'employees'}/${employee.id}`, employee)
   }
 
 }
