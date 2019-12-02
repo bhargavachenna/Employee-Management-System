@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
-
+import { SharedService } from '../shared.service'; 
 import { IEmployee } from '../iemployee';
 
 @Component({
@@ -12,7 +12,7 @@ import { IEmployee } from '../iemployee';
 export class AddemployeeComponent implements OnInit {
 
   employee: IEmployee;
-  constructor(private employeeService: EmployeeService, private router: Router) { }
+  constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.employee = {
@@ -24,7 +24,8 @@ export class AddemployeeComponent implements OnInit {
         };
   }
   createEmployee(){
-    this.employee.id=7;
+    this.employee.id=this.sharedService.maxLength+1;
+    this.sharedService.maxLength=this.employee.id;
     console.log("Values changed",this.employee);
     this.employeeService.createEmployee(this.employee).subscribe(
       (ret)=>{

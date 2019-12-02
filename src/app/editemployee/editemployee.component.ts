@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from '../employee.service';
+import { SharedService } from '../shared.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { IEmployee } from '../iemployee'
+import { EmployeesComponent } from '../employees/employees.component';
 
 @Component({
   selector: 'app-editemployee',
@@ -11,23 +13,17 @@ import { IEmployee } from '../iemployee'
 export class EditemployeeComponent implements OnInit {
 
   employee: IEmployee;
-  constructor(private employeeService: EmployeeService, private router: Router, private activeRoute: ActivatedRoute) { }
+  constructor(private employeeService: EmployeeService, private router: Router, private activeRoute: ActivatedRoute, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.employee = {
-          id: 1,
+          id: this.sharedService.id,
           names: "",
           location: "",
           email: "",
           mobile: ""
         };
-    //let id = parseInt(this.activeRoute.snapshot.paramMap.get('id'));
-    this.activeRoute.paramMap.subscribe( (params: ParamMap) => {
-      let id = parseInt(params.get('id'));
-      this.employee.id=id;
-    });
-    //this.employee.id=id;
-    this.employeeService.getEmployee(this.employee.id).subscribe((data : IEmployee)=>{
+  this.employeeService.getEmployee(this.employee.id).subscribe((data : IEmployee)=>{
         console.log(data);
         this.employee = data;
     })
