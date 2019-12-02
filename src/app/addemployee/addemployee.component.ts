@@ -32,7 +32,7 @@ export class AddemployeeComponent implements OnInit {
         console.log("Employee Added", ret)
       }
     )
-    this.router.navigateByUrl('/employeelist');
+    this.router.navigateByUrl('/employees');
   }
 
 

@@ -1,4 +1,7 @@
 
+<label>Filter by: </label>
+<input [(ngModel)]=filtered type="text">
+
 <table style="width:100%">
   <tr>
     <th>Emp ID</th>
@@ -6,17 +9,19 @@
     <th>Location</th>
     <th>Email</th>
     <th>Mobile</th>
+    <th>Edit</th>
+    <th>mobile</th>
   </tr>
-  <tr *ngFor="let employee of employees" >
+  <tr *ngFor="let employee of employees | filter : filtered" >
     <td><a (click)="setEmployeeId(employee.id)">{{ employee.id }}</a></td>
-    <td>{{ employee.names }}</td>
-    <td>{{ employee.location }}</td>
-    <td>{{ employee.email }}</td>
-    <td>{{ employee.mobile }}</td>
+    <td id="name{{ employee.id }}">{{ employee.names }}</td>
+    <td id="loc{{ employee.id }}">{{ employee.location }}</td>
+    <td id="email{{ employee.id }}">{{ employee.email }}</td>
+    <td id="mob{{ employee.id }}">{{ employee.mobile }}</td>
 
     <td>
-      <button (click)="editEmployee(employee.id)">Edit</button>
-    <button (click)="deleteEmployee(employee.id)">Delete</button>
+      <button (click)="editEmployee(employee.id)">Edit{{ employee.id }}</button>
+    <button (click)="deleteEmployee(employee.id)">Delete{{ employee.id }}</button>
     </td>
   </tr>
 </table>

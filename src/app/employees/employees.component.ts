@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '..app.component';
 import { EmployeeService } from '../employee.service';
 import { SharedService } from '../shared.service';
 import { Router } from '@angular/router';
@@ -12,6 +13,7 @@ import { IEmployee } from '../iemployee'
 export class EmployeesComponent implements OnInit {
 
   employees: IEmployee[];
+  filtered: string = "";
 
   constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService) { }
 
@@ -23,7 +25,7 @@ export class EmployeesComponent implements OnInit {
   }
   public editEmployee(employeeId){
     this.sharedService.id=employeeId;
-    this.router.navigate(['/editemployee']);
+    this.router.navigate(['/editEmployee']);
   }
   public deleteEmployee(employeeId){
       this.employeeService.deleteEmployee(employeeId).subscribe((ret)=>{

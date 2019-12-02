@@ -6,5 +6,6 @@ export class SharedService {
   constructor() { }
   id: string;
   maxLength: number = 3;
+  totalCount: number =3;
 
 }

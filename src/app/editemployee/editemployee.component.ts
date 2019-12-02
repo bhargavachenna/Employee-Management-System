@@ -34,6 +34,6 @@ export class EditemployeeComponent implements OnInit {
         console.log("Employee Updated", ret)
       }
     )
-    this.router.navigateByUrl('/employeelist');
+    this.router.navigateByUrl('/employees');
   }
 }

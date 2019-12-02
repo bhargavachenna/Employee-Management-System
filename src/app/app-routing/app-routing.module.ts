@@ -7,10 +7,10 @@ import {EditemployeeComponent } from '../editemployee/editemployee.component';
 import {ViewemployeeComponent } from '../viewemployee/viewemployee.component';
 
 const routes: Routes = [
-  {path: 'employeelist', component: EmployeesComponent},
+  {path: 'employees', component: EmployeesComponent},
   {path: 'viewemployee', component: ViewemployeeComponent},
-  {path: 'editemployee', component: EditemployeeComponent},
-  {path: 'addemployee', component: AddemployeeComponent}
+  {path: 'editEmployee', component: EditemployeeComponent},
+  {path: 'addEmployee', component: AddemployeeComponent}
 ];
 
 @NgModule({
