@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from '../employees/employees.component';
 import { AddemployeeComponent } from '../addemployee/addemployee.component';
 import {EditemployeeComponent } from '../editemployee/editemployee.component';
+import {ViewemployeeComponent } from '../viewemployee/viewemployee.component';
 
 const routes: Routes = [
   {path: 'employeelist', component: EmployeesComponent},
+  {path: 'viewemployee', component: ViewemployeeComponent},
   {path: 'editemployee', component: EditemployeeComponent},
   {path: 'addemployee', component: AddemployeeComponent}
 ];
@@ -20,4 +22,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponents = [EmployeesComponent,AddemployeeComponent,EditemployeeComponent];
+export const routingComponents = [EmployeesComponent,AddemployeeComponent,EditemployeeComponent,ViewemployeeComponent];

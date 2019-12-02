@@ -12,7 +12,7 @@ import { IEmployee } from '../iemployee'
 export class EmployeesComponent implements OnInit {
 
   employees: IEmployee[];
-  uniqueId: string;
+
   constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService) { }
 
   ngOnInit() {
@@ -25,14 +25,21 @@ export class EmployeesComponent implements OnInit {
     this.sharedService.id=employeeId;
     this.router.navigate(['/editemployee']);
   }
-  public deleteEmployee(policyId){
-    this.employeeService.deleteEmployee(policyId).subscribe((ret)=>{
+  public deleteEmployee(employeeId){
+      this.employeeService.deleteEmployee(employeeId).subscribe((ret)=>{
           console.log("Employee deleted: ", ret);
-    })
+      })
+    if(employeeId==this.sharedService.maxLength){
+      this.sharedService.maxLength=this.sharedService.maxLength-1;
+    }
     this.employeeService.getEmployees().subscribe((data : any[])=>{
         console.log(data);
         this.employees = data;
     })
-} 
+  }
+  public setEmployeeId(employeeId){
+    this.sharedService.id=employeeId;
+    this.router.navigate(['/viewemployee']);
+  } 
 
 }
