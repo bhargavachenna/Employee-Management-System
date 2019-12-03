@@ -1,17 +1,12 @@
-
-<table style="width:100%">
-  <tr>
-    <th>Emp ID</th>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Email</th>
-    <th>Mobile</th>
-  </tr>
-  <tr>
-    <td>{{ employee.id }}</td>
-    <td>{{ employee.names }}</td>
-    <td>{{ employee.location }}</td>
-    <td>{{ employee.email }}</td>
-    <td>{{ employee.mobile }}</td>
-  </tr>
-</table>
+<h3>Employee Details</h3>
+<label id="id">Emp ID : {{ employee.id }}</label>
+<div style="height:10px"></div>
+<label id="name">Name : {{ employee.names }}</label>
+<div style="height:10px"></div>
+<label id="location">Location : {{ employee.location }}</label>
+<div style="height:10px"></div>
+<label id="email">Email : {{ employee.email }}</label>
+<div style="height:10px"></div>
+<label id="mobile">Mobile : {{ employee.mobile }}</label>
+<div style="height:10px"></div>
+<button id="back" routerLink='/employees'>Back</button>
