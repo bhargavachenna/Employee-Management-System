@@ -1,7 +1,7 @@
 <h3>Add Employee</h3>
 <form #userForm="ngForm" (ngSubmit)="createEmployee()" novalidate>
   <label>Employee Name : </label>
-  <input name="names" id="name" type="text" [(ngModel)]="employee.names">
+  <input #empname="ngModel" name="names" id="name" type="text" [(ngModel)]="employee.names" pattern="[A-Za-z]*" minlength="3" required>
   <div style="height:10px"></div>
   <label>Location : </label>
      <select name="location" id="location" [(ngModel)]="employee.location">
@@ -17,5 +17,5 @@
   <label>Mobile : </label>
     <input name="mobile" id="mobile" type="text" [(ngModel)]="employee.mobile">
   <div style="height:10px"></div>
-  <input id="add" type="submit" value="submit">
+  <input [disabled]="!userForm.form.valid" id="add" type="submit" value="submit">
 </form>
