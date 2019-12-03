@@ -4,7 +4,12 @@
   <input name="names" id="name" type="text" [(ngModel)]="employee.names">
   <div style="height:10px"></div>
   <label>Location : </label>
-    <input name="location" id="location" type="text" [(ngModel)]="employee.location">
+     <select name="location" id="location" [(ngModel)]="employee.location">
+      <option value="Bangalore">Bangalore</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Pune">Pune</option>
+      <option value="Hyderabad">Hyderabad</option>
+      </select> 
   <div style="height:10px"></div>
   <label>Email : </label>
     <input name="email" id="location" type="text" [(ngModel)]="employee.email">
