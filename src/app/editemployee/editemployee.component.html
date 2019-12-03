@@ -1,21 +1,53 @@
 <h3>Edit Employee</h3>
 <form #userForm="ngForm" (ngSubmit)="editEmployee()" novalidate>
-  <label>EmployeeName : </label>
-    <input name="names" id="name" type="text" [(ngModel)]="employee.names">
-  <div style="height:10px"></div>
-  <label>Location : </label>
-  <select name="location" id="location" [(ngModel)]="employee.location">
+	<label>EmployeeName : </label>
+	<input #empname="ngModel" name="names" id="name" type="text" [(ngModel)]="employee.names" pattern="[A-Za-z]{3,}" minlength="3" required>
+	<div *ngIf="empname.invalid && (empname.dirty || empname.touched)">
+		<div *ngIf="empname.errors?.required">
+			Employee Name Field Cannot Be Blanck
+		</div>
+		<div *ngIf="empname.errors?.pattern && empname.errors?.minlength && empname.touched">
+			Employee Name Should Be More 2 Characters
+		</div>
+	</div>
+	<div style="height:10px"></div>
+	<label>Location : </label>
+	<select #emplocation="ngModel" pattern="[A-Za-z]{3,}" minlength="3"name="location" id="location" [(ngModel)]="employee.location" required>
       <option value="Bangalore">Bangalore</option>
       <option value="Chennai">Chennai</option>
       <option value="Pune">Pune</option>
       <option value="Hyderabad">Hyderabad</option>
-      </select> 
-  <div style="height:10px"></div>
-  <label>Email : </label>
-  <input name="email" id="location" type="text" [(ngModel)]="employee.email">
-  <div style="height:10px"></div>
-  <label>Mobile : </label>
-  <input name="mobile" id="mobile" type="text" [(ngModel)]="employee.mobile">
-  <div style="height:10px"></div>
-  <input id="update" type="submit" value="update">
+      </select>
+	<div *ngIf="emplocation.invalid && (emplocation.dirty || emplocation.touched)">
+		<div *ngIf="emplocation.errors?.required">
+			Location Cannot Be Blanck
+		</div>
+		<div *ngIf="emplocation.errors?.pattern && emplocation.touched">
+			Location Should Be More 2 Characters
+		</div>
+	</div>
+	<div style="height:10px"></div>
+	<label>Email : </label>
+	<input #empgmail="ngModel" name="email" id="gmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" [(ngModel)]="employee.email" required>
+	<div *ngIf="empgmail.invalid && (empgmail.dirty || empgmail.touched)">
+		<div *ngIf="empgmail.errors?.required">
+			Gmail Cannot Be Blanck
+		</div>
+		<div *ngIf="empgmail.errors?.pattern && empgmail.touched">
+			Gmail Should Be In Email Format
+		</div>
+	</div>
+	<div style="height:10px"></div>
+	<label>Mobile : </label>
+	<input #empmobile="ngModel" name="mobile" id="mobile" type="text" [(ngModel)]="employee.mobile" required>
+	<div *ngIf="empmobile.invalid && (empmobile.dirty || empmobile.touched)">
+		<div *ngIf="empmobile.errors?.required">
+			Mobile No Cannot Be Blanck
+		</div>
+		<div *ngIf="empmobile.errors?.pattern && empmobile.touched">
+			Mobile No Should Have 10 Digits And First Digit Should Not Be Zero
+		</div>
+	</div>
+	<div style="height:10px"></div>
+	<input [disabled]="!userForm.form.valid" id="update" type="submit" value="update">
 </form>
