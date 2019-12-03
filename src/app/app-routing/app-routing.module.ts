@@ -7,10 +7,10 @@ import {EditemployeeComponent } from '../editemployee/editemployee.component';
 import {ViewemployeeComponent } from '../viewemployee/viewemployee.component';
 
 const routes: Routes = [
-  {path: 'employees', component: EmployeesComponent},
-  {path: 'viewemployee', component: ViewemployeeComponent},
-  {path: 'editEmployee', component: EditemployeeComponent},
-  {path: 'addEmployee', component: AddemployeeComponent}
+  {path: 'employees', component: EmployeesComponent,data: {title: "Employee List"}},
+  {path: 'viewemployee', component: ViewemployeeComponent,data: {title: "Employee Details"}},
+  {path: 'editEmployee', component: EditemployeeComponent,data: {title: "Edit Employee"}},
+  {path: 'addEmployee', component: AddemployeeComponent,data: {title: "Add Employee"}}
 ];
 
 @NgModule({

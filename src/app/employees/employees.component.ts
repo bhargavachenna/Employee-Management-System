@@ -14,10 +14,12 @@ export class EmployeesComponent implements OnInit {
 
   employees: IEmployee[];
   filtered: string = "";
+  employeeCount: number;
 
   constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService) { }
 
   ngOnInit() {
+    this.employeeCount=this.sharedService.totalCount;
     this.employeeService.getEmployees().subscribe((data : any[])=>{
         console.log(data);
         this.employees = data;
@@ -34,6 +36,8 @@ export class EmployeesComponent implements OnInit {
     if(employeeId==this.sharedService.maxLength){
       this.sharedService.maxLength=this.sharedService.maxLength-1;
     }
+    this.sharedService.totalCount = this.sharedService.totalCount-1;
+    this.employeeCount=this.sharedService.totalCount;
     this.employeeService.getEmployees().subscribe((data : any[])=>{
         console.log(data);
         this.employees = data;
