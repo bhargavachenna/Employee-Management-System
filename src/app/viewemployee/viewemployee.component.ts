@@ -3,6 +3,8 @@ import { EmployeeService } from '../employee.service';
 import { SharedService } from '../shared.service';
 import { Router } from '@angular/router';
 import { IEmployee } from '../iemployee'
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-viewemployee',
@@ -12,9 +14,11 @@ import { IEmployee } from '../iemployee'
 export class ViewemployeeComponent implements OnInit {
   employee: IEmployee;
 
-  constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService) { }
+  constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService,
+    private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle("Employee Details");
     this.employee = {
           id: this.sharedService.id,
           names: "",

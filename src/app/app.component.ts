@@ -19,16 +19,6 @@ export class AppComponent implements OnInit {
     private titleService: Title
   ) {}
   ngOnInit() {
-    this.router.events
-      .filter(event => event instanceof NavigationEnd)
-      .map(() => this.activatedRoute)
-      .map(route => {
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      })
-      .filter(route => route.outlet === 'primary')
-      .mergeMap(route => route.data)
-      .subscribe((event) => this.titleService.setTitle(event['title'])); 
+    this.titleService.setTitle("Employee Management System");
   }
-
 }

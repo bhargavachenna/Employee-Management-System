@@ -4,6 +4,7 @@ import { EmployeeService } from '../employee.service';
 import { SharedService } from '../shared.service';
 import { Router } from '@angular/router';
 import { IEmployee } from '../iemployee'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-employees',
@@ -16,9 +17,11 @@ export class EmployeesComponent implements OnInit {
   filtered: string = "";
   employeeCount: number;
 
-  constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService) { }
+  constructor(private employeeService: EmployeeService, private router: Router, private sharedService: SharedService,
+    private titleService: Title) { }
 
   ngOnInit() {
+    this.titleService.setTitle("Employee List");
     this.employeeCount=this.sharedService.totalCount;
     this.employeeService.getEmployees().subscribe((data : any[])=>{
         console.log(data);

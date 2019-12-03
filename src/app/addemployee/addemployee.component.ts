@@ -3,6 +3,7 @@ import { EmployeeService } from "../employee.service";
 import { Router } from "@angular/router";
 import { SharedService } from "../shared.service";
 import { IEmployee } from "../iemployee";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-addemployee",
@@ -14,7 +15,8 @@ export class AddemployeeComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private router: Router,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class AddemployeeComponent implements OnInit {
       email: "",
       mobile: ""
     };
+    this.titleService.setTitle("Add Employee");
   }
   createEmployee() {
     this.employee.id = this.sharedService.maxLength + 1;
