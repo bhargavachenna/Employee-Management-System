@@ -4,7 +4,7 @@
 	<input #empname="ngModel" name="names" id="name" type="text" [(ngModel)]="employee.names" pattern="[A-Za-z]{3,}" minlength="3" required>
 	<div *ngIf="empname.invalid && (empname.dirty || empname.touched)">
 		<div *ngIf="empname.errors?.required">
-			Employee Name Field Cannot Be Blanck
+			Employee Name Field Cannot Be Blank
 		</div>
 		<div *ngIf="empname.errors?.pattern && empname.errors?.minlength && empname.touched">
 			Employee Name Should Be More 2 Characters
@@ -20,7 +20,7 @@
       </select>
 	<div *ngIf="emplocation.invalid && (emplocation.dirty || emplocation.touched)">
 		<div *ngIf="emplocation.errors?.required">
-			Location Cannot Be Blanck
+			Location Cannot Be Blank
 		</div>
 		<div *ngIf="emplocation.errors?.pattern && emplocation.touched">
 			Location Should Be More 2 Characters
@@ -31,7 +31,7 @@
 	<input #empgmail="ngModel" name="email" id="gmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" [(ngModel)]="employee.email" required>
 	<div *ngIf="empgmail.invalid && (empgmail.dirty || empgmail.touched)">
 		<div *ngIf="empgmail.errors?.required">
-			Gmail Cannot Be Blanck
+			Gmail Cannot Be Blank
 		</div>
 		<div *ngIf="empgmail.errors?.pattern && empgmail.touched">
 			Gmail Should Be In Email Format
@@ -39,10 +39,10 @@
 	</div>
 	<div style="height:10px"></div>
 	<label>Mobile : </label>
-	<input #empmobile="ngModel" name="mobile" id="mobile" type="text" [(ngModel)]="employee.mobile" required>
+	<input #empmobile="ngModel" name="mobile" pattern="[1-9]{1}[0-9]{9}" id="mobile" type="text" [(ngModel)]="employee.mobile" required>
 	<div *ngIf="empmobile.invalid && (empmobile.dirty || empmobile.touched)">
 		<div *ngIf="empmobile.errors?.required">
-			Mobile No Cannot Be Blanck
+			Mobile No Cannot Be Blank
 		</div>
 		<div *ngIf="empmobile.errors?.pattern && empmobile.touched">
 			Mobile No Should Have 10 Digits And First Digit Should Not Be Zero
