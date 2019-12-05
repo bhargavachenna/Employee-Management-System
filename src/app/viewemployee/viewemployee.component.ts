@@ -26,7 +26,7 @@ export class ViewemployeeComponent implements OnInit {
           email: "",
           mobile: ""
         };
-    this.employeeService.getEmployee(this.employee.id).subscribe((data : any[])=>{
+    this.employeeService.getEmployee(this.employee.id).subscribe((data : IEmployee[])=>{
         console.log(data);
         this.employee = data;
     })

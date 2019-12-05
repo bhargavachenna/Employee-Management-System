@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class SharedService {
 
   constructor() { }
-  id: string;
+  id: number;
   maxLength: number = 3;
   totalCount: number =3;
 
