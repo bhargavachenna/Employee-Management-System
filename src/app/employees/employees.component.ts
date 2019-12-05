@@ -23,7 +23,7 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle("Employee List");
     this.employeeCount=this.sharedService.totalCount;
-    this.employeeService.getEmployees().subscribe((data : any[])=>{
+    this.employeeService.getEmployees().subscribe((data : IEmployee[])=>{
         console.log(data);
         this.employees = data;
     })
@@ -41,7 +41,7 @@ export class EmployeesComponent implements OnInit {
     }
     this.sharedService.totalCount = this.sharedService.totalCount-1;
     this.employeeCount=this.sharedService.totalCount;
-    this.employeeService.getEmployees().subscribe((data : any[])=>{
+    this.employeeService.getEmployees().subscribe((data : IEmployee[])=>{
         console.log(data);
         this.employees = data;
     })
